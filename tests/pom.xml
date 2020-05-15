@@ -714,7 +714,7 @@ Test cases are run against Docker images of Hono server + (Apache Qpid Dispatch 
                   <alias>http-adapter</alias>
                   <build>
                     <imagePullPolicy>IfNotPresent</imagePullPolicy>
-                    <from>${docker.image.org-name}/hono-adapter-http-vertx:${project.version}</from>
+                    <from>${docker.image.org-name}/hono-adapter-http-vertx-quarkus:${project.version}</from>
                     <assembly>
                       <mode>dir</mode>
                       <basedir>/</basedir>
@@ -733,6 +733,13 @@ Test cases are run against Docker images of Hono server + (Apache Qpid Dispatch 
                           <fileSet>
                             <directory>${project.build.directory}/resources/http</directory>
                             <outputDirectory>etc/hono</outputDirectory>
+                            <includes>
+                              <include>*</include>
+                            </includes>
+                          </fileSet>
+                          <fileSet>
+                            <directory>${project.build.directory}/resources/http</directory>
+                            <outputDirectory>/deployments/config</outputDirectory>
                             <includes>
                               <include>*</include>
                             </includes>
