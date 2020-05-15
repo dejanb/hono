@@ -162,10 +162,10 @@ public final class KeyLoader {
         PrivateKey privateKey = null;
         List<Certificate> certChain = null;
 
-        if (keyPath != null) {
+        if (keyPath != null && !keyPath.isEmpty()) {
             privateKey = loadPrivateKeyFromFile(vertx, keyPath);
         }
-        if (certPath != null) {
+        if (certPath != null && !certPath.isEmpty()) {
             certChain = loadCertsFromFile(vertx, certPath);
         }
 
